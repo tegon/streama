@@ -11,7 +11,7 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 	$stateProvider
 		.state('dash', {
 			url: '/',
-			templateUrl: 'dash.htm',
+			templateUrl: 'templates/dash.tpl.htm',
 			controller: 'dashCtrl',
       resolve: {
         currentUser: ['apiService', '$rootScope', function (apiService, $rootScope) {

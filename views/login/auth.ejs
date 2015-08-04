@@ -21,7 +21,7 @@
 					<input type="password" name='j_password' class="form-control" placeholder="Password">
 					<div class="checkbox">
 						<label>
-							<input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me' <% if(hasCookie) { %>checked='checked'<% } %>/> Remember me
+							<input type='checkbox' class='chk' name=<%= rememberMeParameter %> id='remember_me' <% if(hasCookie) { %>checked='checked'<% } %>/> Remember me
 						</label>
 					</div>
 				</div>

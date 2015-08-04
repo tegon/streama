@@ -37,6 +37,16 @@ module.exports.routes = {
     locals: {
       title: 'Streama'
     }
+  },
+  '/auth': {
+    view: 'login/auth',
+    locals: {
+      title: 'Streama - Login',
+      flash: {},
+      postUrl: 'foo',
+      hasCookie: false,
+      rememberMeParameter: 'bar'
+    }
   }
 
   /***************************************************************************

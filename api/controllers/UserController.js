@@ -1,11 +1,5 @@
-/**
- * UserController
- *
- * @description :: Server-side logic for managing users
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
- */
-
 module.exports = {
-	
+	current: function(req, res, next) {
+    return res.send(false);
+  }
 };
-
