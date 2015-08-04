@@ -1,94 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="streamaApp" lang="en">
   <head>
-    <title>New Sails App</title>
-
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    
-    <!--  
-        Stylesheets and Preprocessors
-        ==============================
-
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-        By default, stylesheets from your `assets/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
-        
-        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-            
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/importer.css">
-    <!--STYLES END-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= title %></title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-retina.png">
+    <link rel="stylesheet" type="text/css" href="/lib/ionicons/css/ionicons.css"></link>
+    <link rel="stylesheet" type="text/css" href="/lib/angular/angular-csp.css"></link>
+    <link rel="stylesheet" type="text/css" href="/lib/alertify/themes/alertify.core.css"></link>
+    <link rel="stylesheet" type="text/css" href="/lib/alertify/themes/alertify.bootstrap3.css"></link>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css"></link>
   </head>
 
   <body>
+    <header class="main" ng-if="!isCurrentState('player')">
+      <a class="logo" ui-sref="dash">
+        <img src="images/logo.png" />
+      </a>
+
+      <ul class="navigation">
+        <!-- <sec:ifAnyGranted roles="ROLE_CONTENT_MANAGER">
+          <li><a ui-sref="admin.shows">Admin</a></li>
+        </sec:ifAnyGranted>
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+          <sec:ifNotGranted roles="ROLE_CONTENT_MANAGER">
+            <li><a ui-sref="admin.users">Admin</a></li>
+          </sec:ifNotGranted>
+        </sec:ifAnyGranted>
+
+        <sec:ifLoggedIn>
+          <li><a ui-sref="dash">Dashboard</a></li>
+          <li><a ui-sref="profile">Profile</a></li>
+          <li><g:link uri="/j_spring_security_logout">Logout</g:link></li>
+        </sec:ifLoggedIn> -->
+      </ul>
+    </header>
+
     <%- body %>
-
-
-
-    <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-        
-        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
-
-    <!--TEMPLATES-->
-    
-    <!--TEMPLATES END-->
-
-
-    <!--
-
-      Client-side Javascript
-      ========================
-
-      You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
-      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-      By default, files in your `assets/js` folder are included here
-      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
-      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
-      and concatenated into a single file.
-      
-      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-      For example, here are a few things you could do:
-          
-          + Change the order of your scripts
-          + Import scripts from other directories
-          + Use a different preprocessor, like TypeScript
-
-    -->
-
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/lib/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript" src="/lib/ui-bootstrap-custom-build/ui-bootstrap-custom-0.13.1.js"></script>
+    <script type="text/javascript" src="/lib/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.1.js"></script>
+    <script type="text/javascript" src="/lib/alertify/alertify.js"></script>
+    <script type="text/javascript" src="/lib/lodash/lodash.js"></script>
+    <script type="text/javascript" src="/lib/ng-file-upload/ng-file-upload.js"></script>
+    <script type="text/javascript" src="/lib/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+    <script type="text/javascript" src="/lib/angular-ui-slider/src/slider.js"></script>
+    <script type="text/javascript" src="/lib/mousetrap/mousetrap.js"></script>
+    <script type="text/javascript" src="/lib/Autolinker.js/dist/Autolinker.js"></script>
+    <script type="text/javascript" src="/lib/angular-local-storage/dist/angular-local-storage.js"></script>
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/streama-app.js"></script>
+    <script src="/js/controllers/admin-ctrl.js"></script>
+    <script src="/js/controllers/admin-movie-ctrl.js"></script>
+    <script src="/js/controllers/admin-movies-ctrl.js"></script>
+    <script src="/js/controllers/admin-settings-ctrl.js"></script>
+    <script src="/js/controllers/admin-show-ctrl.js"></script>
+    <script src="/js/controllers/admin-shows-ctrl.js"></script>
+    <script src="/js/controllers/admin-users-ctrl.js"></script>
+    <script src="/js/controllers/dash-ctrl.js"></script>
+    <script src="/js/controllers/modal-file-browser-ctrl.js"></script>
+    <script src="/js/controllers/modal-file-ctrl.js"></script>
+    <script src="/js/controllers/modal-movie-ctrl.js"></script>
+    <script src="/js/controllers/modal-tvshow-ctrl.js"></script>
+    <script src="/js/controllers/modal-user-ctrl.js"></script>
+    <script src="/js/controllers/modal-video-ctrl.js"></script>
+    <script src="/js/controllers/player-ctrl.js"></script>
+    <script src="/js/controllers/profile-ctrl.js"></script>
+    <script src="/js/directives/admin-episode-directive.js"></script>
+    <script src="/js/services/api-service.js"></script>
+    <script src="/js/services/filters.js"></script>
+    <script src="/js/services/modal-service.js"></script>
+    <script src="/js/services/socket-service.js"></script>
+    <script src="/js/services/upload-service.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
