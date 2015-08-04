@@ -26,6 +26,10 @@ module.exports = {
     imdbId: {
       type: 'string',
       columnName: 'imdb_id'
+    },
+    files: {
+      collection: 'file',
+      via: 'videos'
     }
   }
 };

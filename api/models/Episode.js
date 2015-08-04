@@ -1,7 +1,8 @@
 var _ = require('lodash');
 var Video = require('./Video.js');
+var Waterline = require('waterline');
 
-module.exports = _.extend({
+module.exports = _.extend(Waterline.Collection.extend({
 
   attributes: {
     name: {
@@ -26,10 +27,14 @@ module.exports = _.extend({
     stillPath: {
       type: 'string',
       columnName: 'still_path'
+    },
+    show: {
+      model: 'tvShow',
+      columnName: 'show_id'
     }
   },
 
   beforeUpdate: function(values, callback) {
     values.episodeString = 's' + _.padLeft(values.seasonNumber.toString(), 2, '0') + 'e' + _.padLeft(values.episodeNumber.toString(), 2, '0');
   }
-}, Video);
+}), Video);

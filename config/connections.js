@@ -45,7 +45,7 @@ module.exports.connections = {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'streama'
+    database: 'streama-node'
   },
 
   /***************************************************************************

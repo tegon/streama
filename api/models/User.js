@@ -41,6 +41,14 @@ module.exports = {
     },
     uuid: {
       type: 'string'
+    },
+    favoriteGenres: {
+      collection: 'genre',
+      via: 'users'
+    },
+    roles: {
+      collection: 'userRole',
+      via: 'user'
     }
   },
 
