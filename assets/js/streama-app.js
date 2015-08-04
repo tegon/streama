@@ -26,7 +26,7 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 		})
 		.state('profile', {
 			url: '/profile',
-			templateUrl: 'profile.htm',
+			templateUrl: 'templates/profile.tpl.htm',
 			controller: 'profileCtrl',
       resolve: {
         currentUser: ['apiService', '$rootScope', function (apiService, $rootScope) {
@@ -41,7 +41,7 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 		})
 		.state('player', {
 			url: '/player/:videoId?currentTime?sessionId',
-			templateUrl: 'player.htm',
+			templateUrl: 'templates/player.tpl.htm',
 			controller: 'playerCtrl',
       resolve: {
         currentUser: ['apiService', '$rootScope', function (apiService, $rootScope) {
@@ -56,7 +56,7 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 		})
 		.state('admin', {
 			url: '/admin',
-			templateUrl: 'admin.htm',
+			templateUrl: 'templates/admin.tpl.htm',
 			controller: 'adminCtrl',
       resolve: {
         currentUser: ['apiService', '$rootScope', '$state', function (apiService, $rootScope, $state) {
@@ -73,17 +73,17 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 		})
 		.state('admin.movies', {
 			url: '/movies',
-			templateUrl: 'admin-movies.htm',
+			templateUrl: 'templates/admin-movies.tpl.htm',
 			controller: 'adminMoviesCtrl'
 		})
 		.state('admin.movie', {
 			url: '/movie/:movieId',
-			templateUrl: 'admin-movie.htm',
+			templateUrl: 'templates/admin-movie.tpl.htm',
 			controller: 'adminMovieCtrl'
 		})
 		.state('admin.users', {
 			url: '/users',
-			templateUrl: 'admin-users.htm',
+			templateUrl: 'templates/admin-users.tpl.htm',
 			controller: 'adminUsersCtrl',
       resolve: {
         currentUser: ['apiService', '$rootScope', '$state', function (apiService, $rootScope, $state) {
@@ -100,7 +100,7 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 		})
 		.state('admin.settings', {
 			url: '/settings',
-			templateUrl: 'admin-settings.htm',
+			templateUrl: 'templates/admin-settings.tpl.htm',
 			controller: 'adminSettingsCtrl',
       resolve: {
         currentUser: ['apiService', '$rootScope', '$state', function (apiService, $rootScope, $state) {
@@ -117,12 +117,12 @@ streamaApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', func
 		})
 		.state('admin.shows', {
 			url: '/shows',
-			templateUrl: 'admin-shows.htm',
+			templateUrl: 'templates/admin-shows.tpl.htm',
 			controller: 'adminShowsCtrl'
 		})
 		.state('admin.show', {
 			url: '/show/:showId',
-			templateUrl: 'admin-show.htm',
+			templateUrl: 'templates/admin-show.tpl.htm',
 			controller: 'adminShowCtrl'
 		});
 
